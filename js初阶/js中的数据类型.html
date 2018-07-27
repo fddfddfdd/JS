@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js中的数据类型</title>
+</head>
+<body>
+<script type="text/javascript">
+    var a=12;
+    //十进制
+    a=-23;
+    a=12.3;
+    a=.23e4;
+    a=2e3;
+    a=3E-2;
+    //十六进制
+    a=0xabcdef;
+    a=0xfff;
+    //八进制
+    a=0011;
+    //正无穷大Infinity
+    a=1.79e310;
+    a=-1.79e310;
+    //NaN:Not a Number
+    a=0/0;
+    //alert(a);
+    //通过isNaN()来检测是否是NaN值
+    //alert(isNaN(a));
+    //NaN不能和自身比较
+    //alert(NaN==NaN);
+    //字符串类型
+    var str='this is a test'
+    var str1="hello world";
+    //alert(str);
+    //alert(str1);
+    //var username="king's";
+    //var username='king\'s';
+    //alert(username);
+    //var str2='\ta\nb\rcd\\e';
+    //alert(str2);
+    //布尔类型
+    var married=true;
+    //married=TRUE;
+    //alert(married);
+    //声明变量为赋值
+    //var test6;
+    //赋值为不存在的属性值
+    var test7=String.NotExists;
+    //alert(test7);
+    var test8=null;
+    alert(test8);
+    alert(undefined===null);
+</script>
+</body>
+</html>

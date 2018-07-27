@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js中的对象属性相关操作</title>
+</head>
+<body>
+<script type="text/javascript">
+    var person={
+        username:'laihengjun',
+        age:25,
+        sex:'男',
+        salary:5100,
+        addr:'重庆'
+    };
+    console.log('用户名为：'+person.username+'\n'+'年龄：'+person.age+'\n');
+    console.log('薪水：'+person['salary']+'\n'+'地址：'+person['addr']+'\n');
+    function PersonInfo(name,age,sex) {
+        this.name=name;
+        this.age=age;
+        this.sex=sex;
+    }
+    var person1=new PersonInfo('laihengjun',25,'男');
+    console.log(person1.age+'\n'+person1['name']);
+    var obj={};
+    obj.username='fdd';
+    obj.age=24;
+    obj.addr='重庆';
+    obj['sex']='女';
+    console.log(obj.sex+'\n');
+    delete obj.addr;
+    console.log(obj.addr);
+    //通过for/in遍历属性
+    var obj1={
+        x:1,
+        y:2,
+        test:'this is a test',
+        edu:'cqupt'
+    };
+    for(var p in obj1){
+        console.log(p+'\n');
+    }
+    //对象中有方法
+    var obj2={
+        username:'king',
+        age:12,
+        addr:'重庆',
+        sayHi:function (){
+            return 'say Hi';
+        },
+        info:function (){
+            return '用户名：'+this.username+'\n'+'年龄：'+this.age+'\n';
+        },
+    };
+    console.log(obj2.sayHi());
+    console.log(obj2.info());
+
+    function person2(username,age,sex,addr) {
+        this.username=username;
+        this.age=age;
+        this.sex=sex;
+        this.addr=addr;
+        this.info=function () {
+            return this.username+this.sex;
+        }
+    }
+    var p2=new person2('fengdan',24,'女','重庆');
+    console.log(p2.info());
+    p2.test='this is a test';
+    console.log(p2.test);
+    p2.info2=function () {
+        return 'this is a test2220';
+    }
+    console.log(p2.info2());
+</script>
+</body>
+</html>

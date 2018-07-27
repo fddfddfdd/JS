@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js中的数组对象</title>
+</head>
+<body>
+<script type="text/javascript">
+    var usernames=[
+        {username:'king',age:12},
+        {username:'aking',age:82},
+        {username:'nking',age:32},
+        {username:'bking',age:52}
+        ];
+    usernames.sort(function (a,b) {
+        if(a.username<b.username) return -1;
+        if(a.username>b.username) return 1;
+        return 0;
+    });
+    for(var i in usernames){
+        console.log(usernames[i].username);
+    }
+</script>
+</body>
+</html>

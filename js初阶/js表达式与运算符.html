@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js表达式与运算符</title>
+    <script type="text/javascript">
+        var r=8;
+        var pi=3.14;
+        var s=pi*r*r;
+        // alert('圆的面积'+s)
+    </script>
+</head>
+<body>
+<script type="text/javascript">
+    //算术运算符的例子
+    var i=3,j=8;
+    document.write(i+j);
+    document.write('<br/>');
+    document.write(i-j);
+    document.write('<br/>');
+    document.write(i*j);
+    document.write('<br/>');
+    document.write((i/j));
+    document.write('<br/>');
+    document.write(i%j);
+    document.write('<br/>');
+    document.write(3%-8);
+    document.write('<br/>');
+    document.write(-3%8);
+    document.write('<br/>');
+    document.write(-3%-8);
+    document.write('<br/>');
+    //+比较特殊
+    document.write(i+'8');
+    document.write('<br/>');
+    document.write('2'+'8');
+    document.write('<br/>');
+    document.write(i+j+'3king');
+    document.write('<br/>');
+    document.write(''+i);
+    var z=''+i;
+    // alert(typeof z);
+    //自增自减运算符 ++ --
+    //整型支持自增 自减运算符
+    var num1=1;
+    // alert(num1++);
+    // alert(num1);
+    // alert(++num1);
+    // alert(--num1);
+    //浮点型支持自增自减运算符
+    num1=12.3;
+    // alert(--num1);
+    num1=true;
+    num1=false;
+    // alert(++num1);
+    // alert(--num1);
+    //字符串型不支持自增自减运算符
+    num1='b';
+    // alert(++num1);
+    //null支持自增自减运算符
+    num1=null;
+    // alert(++num1);
+    // alert(--num1);
+    num1=undefined;
+    // alert(++num1);
+    document.write('<br/>');
+    //字符串连接符+
+    document.write('hello'+' cqupt '+'<br/>');
+    document.write(1+'king');
+    document.write('<br/>');
+    var i=1,j=2,z=3;
+    document.write(''+i+j+z);
+    document.write('<br/>');
+    //赋值运算符的例子
+    var username='king';
+    document.write('用户名为：'+username+'<br/>');
+    //+= -= *= /= %= .=
+    var a=1;
+    a+=3;//a=a+3
+    // alert(a);
+    a-=6;
+    a*=8;
+    a/=4;
+    a%=9;
+    document.write(a);
+    document.write('<br/>');
+    var str1='hello',str2='world';
+    str2+=str1;
+    document.write(str2);
+
+    //比较运算符的例子
+    // alert(3>1);
+    // alert(3>=1);
+    // alert(3<=12);
+    // alert(3<2);
+    var res=1==true;
+    res=1=='1';
+    res=3=='3king';
+    res=0==null;//false
+    res=0!=null;
+    res=1===true;
+    res=1!==true;
+    // alert(res);
+    // alert(NaN==NaN);//false
+    // alert(undefined==undefined);
+
+    //逻辑运算符的例子
+    //要求两个表达式为true,结果才是true
+    // alert(true && true);
+    // alert(true && false);
+    // alert(false && false);
+    // alert(false && true);
+    document.write('<br/>');
+    //如果第一个表达式为false,整个结果为false，就把第二个表达式短路了
+    var i=0,j=1;
+    if(i-- && j++){//0->false &&
+        document.write('hello');
+    }else {
+        document.write('world');
+    }
+    // alert(i);
+    // alert(j);
+    document.write('<br/>');
+
+    //逻辑或||
+    //两个表达式中有一个为true，整个结果为true
+    // alert(true||true);
+    // alert(true||false);
+    // alert(false||true);
+    // alert(false||false);
+    //如果第一个表达式为true,整个结果为true,把第二个表达式短路了
+    i=1;
+    j=0;
+    if(i-- || ++j){//i->true
+        document.write('aa');
+    }else {
+        document.write('bb');
+    }
+    // alert(i);
+    // alert(j)
+    document.write('<br/>');
+
+    //逻辑非 ！ 取反的作用
+    // alert(!true);
+    // alert(!false);
+
+    /*if(exp){
+        exp为true的代码段;
+    }else{
+        exp为false的代码段;
+    }
+    exp1?exp2:exp3;
+    */
+    if(3>1){
+        document.write('aa');
+    }else {
+        document.write('bb');
+    }
+    document.write('<br/>');
+    var res=3>1?'aa':'bb';
+    document.write(res);
+    document.write('<br/>');
+    var x=123;
+    res=isNaN(x)?0:x;
+    // alert(res);
+
+
+    //逗号表达式的例子
+    // var a,b,c,d;
+    // var i=1,j=2,k=3;
+    var z=(n=1,m=2,p=3);
+    // alert(z+"\n"+n+"\n"+m+"\n"+p);
+    //void运算符
+    // z=void(n=1,m=2,p=3);
+    // alert(z);
+    var o;
+    o=123;
+    o='king';
+    o=true;
+    o=null;
+    o=undefined;
+    o=[1,2,3];
+    alert(typeof o);
+
+</script>
+</body>
+</html>
