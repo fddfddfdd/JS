@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extend2</title>
+</head>
+<body>
+<script type="text/javascript">
+/*    function Shape() {
+
+    }
+    Shape.prototype.name='Shape';
+    Shape.prototype.toString=function () {
+        return this.name
+    };
+    var F=function(){};
+    F.prototype=Shape.prototype;
+    function TwoDShape() {
+
+    }
+    TwoDShape.prototype=new F();
+    TwoDShape.prototype.constructor=TwoDShape;
+    TwoDShape.prototype.name='2D Shape';
+    function Triangle(side,height) {
+        this.side=side;
+        this.height=height;
+    }
+    var F=function () {
+
+    };
+    F.prototype=TwoDShape.prototype;
+    Triangle.prototype=new F();
+    Triangle.prototype.constructor=Triangle;
+    Triangle.prototype.name='Triangle';
+    Triangle.prototype.getArea=function () {
+        return this.side*this.height/2;
+    }
+    var my=new Triangle(10,10);
+    console.log(my.getArea());
+    console.log(my.name);
+    var me=new TwoDShape();
+    console.log(me.name);
+    console.log(me.constructor);
+    console.log(my.constructor);
+    console.log(my.__proto__.__proto__.__proto__.constructor);*/
+
+
+
+
+    function Shape() {};
+    Shape.prototype.name='Shape';
+    Shape.prototype.toString=function () {
+        return this.name;
+    }
+    var F=function () {};
+    function TwoDShape() {};
+    F.prototype=Shape.prototype;
+    TwoDShape.prototype=new F();
+    TwoDShape.prototype.name='2D Shape';
+    TwoDShape.prototype.constructor=TwoDShape;
+    var F=function () {};
+    function Triangle(side,height) {
+        this.side=side;
+        this.height=height;
+    }
+    F.prototype=TwoDShape.prototype;
+    Triangle.prototype= new F();
+    Triangle.prototype.constructor=Triangle;
+    Triangle.prototype.name='Triangle';
+    Triangle.prototype.getArea=function () {
+        return this.side*this.height/2;
+    };
+    var my=new Triangle(2,5);
+    console.log(my.getArea());
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extend5</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Multiextend() {
+        var n={},stuff,j=0,len=arguments.length;
+        for(j=0;j<len;j++){
+            stuff=arguments[j];
+            for(var i in stuff){
+                n[i]=stuff[i];
+            }
+        }
+        return n;
+    }
+    var Shape={
+        name:'Shape',
+        toString:function () {
+            return this.name;
+        }
+    };
+    var TwoDShape={
+        name:'2D Shape',
+        test:'this is a test'
+    };
+    var Triangle=Multiextend(Shape,TwoDShape,{
+        name:'Triangle',
+        getArea:function () {
+            return this.side*this.height/2;
+        },
+        side:8,
+        height:8
+    });
+    console.log(Triangle.toString());
+    console.log(Triangle.getArea());
+    console.log(Triangle.test);
+</script>
+</body>
+</html>

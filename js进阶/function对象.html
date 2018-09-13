@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>function对象</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*(
+        function (count) {
+            if(count<3){
+                alert(count);
+                arguments.callee(++count);
+            }
+        }
+    )(0);*/
+    var obj={
+        name:'king',
+        say:function (somebody) {
+            return 'Hello '+somebody+' this is '+this.name;
+        }
+    };
+    var obj1={
+        name: 'fdd'
+    };
+    console.log(obj.say.call(obj1,'js'));
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js中的闭包2</title>
+</head>
+<body>
+<script type="text/javascript">
+/*    var n;
+    function f() {
+        var a='king';
+        n=function () {
+            return a;
+        };
+    }
+    f();
+    alert(n());*/
+function f(param) {
+    var n=function () {
+        return param;
+    }
+    param++;
+    return n;
+}
+var test=f(235);
+alert(test());
+</script>
+</body>
+</html>

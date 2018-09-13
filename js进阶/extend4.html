@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extend4</title>
+</head>
+<body>
+<script type="text/javascript">
+    function extend(child,parent) {
+        var F=function () {};
+        F.prototype=parent.prototype;
+        child.prototype=new F();
+        child.prototype.constructor=child;
+        child.uber=parent.prototype;
+    }
+    function extend1(child,parent) {
+        var c=child.prototype;
+        var p=parent.prototype;
+        for(var i in p){
+            c[i]=p[i];
+        }
+        c.uber=p;
+    }
+    var Shape=function () {
+
+    };
+    var TwoDShape=function () {
+
+    };
+    Shape.prototype.name='Shape';
+    Shape.prototype.toString=function () {
+        return this.name;
+    }
+    var A=function () {
+
+    };
+    var B=function () {
+
+    };
+    A.prototype.test=[1,2,3];
+    A.prototype.test1='this is a test';
+    extend1(B,A);
+    B.prototype.test1='hello fdd';
+    console.log(A.prototype.test1);
+    console.log(B.prototype.test1);
+</script>
+</body>
+</html>

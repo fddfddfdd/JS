@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>seal13</title>
+</head>
+<body>
+<script type="text/javascript">
+    var obj={
+        x:1,
+        y:2,
+        username:'king'
+    };
+    obj.age=12;
+    delete obj.x;
+    var o=Object.seal(obj);
+    console.log(obj===o);
+    console.log(Object.isExtensible(o));
+    console.log(obj);
+    obj.y=55;
+    console.log(obj.y);
+
+    function deepFreeze(obj) {
+        var prop,propKey;
+        Object.freeze(obj);
+        for(propKey in obj){
+            prop=obj[propKey];
+            if(!obj.hasOwnProperty(propKey)||!(typeof prop==='object'||Object.isFrozen(prop))){
+                continue;
+            }
+            else deepFreeze(prop);
+        }
+    }
+    var obj2={
+        internal:{}
+    };
+    deepFreeze(obj2);
+/*    obj.internal.x=1;*/
+    console.log(obj.internal.x);
+
+
+</script>
+</body>
+</html>

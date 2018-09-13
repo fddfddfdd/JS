@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var str = "Yes sir";
+    var _str = "";
+    var words = str.split(" ");
+    var _words = {};
+    for(var i=0,len=words.length;i<len;i++){
+        _words[i] =words[i].reverse();
+    }
+        _str = _words.join(' ');
+    alert(_str);
+
+</script>
+</body>
+</html>

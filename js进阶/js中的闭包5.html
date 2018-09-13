@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js中的闭包5</title>
+</head>
+<body>
+<script type="text/javascript">
+    //迭代器中的应用
+    function test(x) {
+        var i=0;
+        return function () {
+            return x[i++];
+        };
+    }
+    var next=test(['a','b','c','d']);
+    alert(next());
+    alert(next());
+    alert(next());
+    alert(next());
+</script>
+</body>
+</html>

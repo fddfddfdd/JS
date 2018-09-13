@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>obj12</title>
+</head>
+<body>
+<script type="text/javascript">
+    var obj={};
+    //检测对象是否可扩展
+    console.log(Object.isExtensible(obj));
+    var d=new Date();
+    console.log(Object.isExtensible(d));
+    obj.x=1;
+    console.log(obj.x);
+    //通过preventExtensions()将对象变为不可扩展的
+    obj1=Object.preventExtensions(obj);
+    console.log(obj===obj1);
+    console.log(Object.isExtensible(obj1));
+    obj1.y=2;
+    console.log(obj1.y);
+    var obj2={
+        internal: {}
+    };
+    Object.freeze(obj2);
+    console.log(Object.isFrozen(obj2));
+</script>
+</body>
+</html>

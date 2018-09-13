@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extend3</title>
+</head>
+<body>
+<script type="text/javascript">
+    function extend(child,parent) {
+        var F=function () {};
+        F.prototype=parent.prototype;
+        child.prototype=new F();
+        child.prototype.constructor=child;
+        child.uber=parent.prototype;
+    }
+    function Shape() {};
+    Shape.prototype.name='Shape';
+    Shape.prototype.toString=function () {
+        var result=[];
+        if(this.constructor.uber){
+            result[result.length]=this.constructor.uber.toString();
+        }
+        result[result.length]=this.name;
+        return result.join(' + ');
+    }
+    function TwoDShape() {};
+    extend(TwoDShape,Shape);
+    TwoDShape.prototype.name='2D Shape';
+    function Triangle(side,height) {
+        this.side=side;
+        this.height=height;
+    }
+    extend(Triangle,TwoDShape);
+    Triangle.prototype.name='Triangle';
+    Triangle.prototype.getArea=function () {
+        return this.side*this.height/2;
+    }
+    var my=new Triangle(2,4);
+    console.log(my.getArea());
+    console.log(my.toString());
+    var me=new TwoDShape();
+    console.log(me.toString());
+</script>
+</body>
+</html>

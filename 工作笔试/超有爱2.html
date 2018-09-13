@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function getCombBySum(array,sum,tolerance,targetCount){
+        var util={
+            getCombination :function (arr,num) {
+                var r=[];
+                (function f(t,a,n) {
+                    if(n==0){
+                        return r.push(t);
+                    }
+                    for(var i=0,l=a.length;i<l-n;i++){
+                        f(t.concat(a[i]),a.slice(i+1),n-1);
+                    }
+                })([],arr,num);
+                return r;
+            },
+            getArrayIndex : function (arry) {
+                var i=0, r=[];
+                for(i=0;i<arry.length;i++){
+                    r.push(i);
+                }
+                return r;
+            }
+        },
+            logic = {
+            init : function (array,sum) {
+           var _array = array.concat(), r=[], i=0;
+           _array.sort(function (a,b) {
+            return a-b;
+           });
+           for(i=0;i<_array.length;i++){
+               if(_array[i]<=sum){
+                   r.push(_array[i]);
+               }else{
+                   break;
+               }
+           }
+           return r;
+            },
+                core: function (array,sum,arrayIndex,count,r) {
+                    var i=0,k=0,combArray=[],_sum=0,_cca=[],_cache=[];
+                    if(count == _returnMark){
+                        return;
+                    }
+                    combArray = util.getCombination(arrayIndex,count);
+                    for(i=0;i<combArray.length;i++){
+                        _cca=combArray[i];
+                        _sum=0;
+                        _cache=[];
+                        for(k=0;k<_cca.length;k++){
+                            _sum+=array[_cca[k]];
+                            _cache.push(array[_cca[k]]);
+                        }
+                        if(Math.abs(_sum-sum)<=_tolerance){
+                            r.push(_cache);
+                        }
+                    }
+                    logic.cor(array,sum,arrayIndex,count-1,r);
+                }
+            },
+            r=[],
+            _array=[],
+            _targetCount=0,
+            _tolerance=0,
+            _returnMark=0;
+        _targetCount=targetCount||_targetCount;
+        _tolerance = tolerance||_tolerance;
+        _array=logic.init(array,sum);
+        if(_targetCount){
+            _returnMark=_targetCount-1;
+        }
+        logic.core(_array,sum,util,getArrayIndex(_array),(_targetCount||_array.length),r);
+        return r;
+    }
+</script>
+</body>
+</html>
